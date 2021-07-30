@@ -118,6 +118,33 @@ public class EffectivenessStudy {
 		return zcodeMap;
 	}
 	
+	// to do, 
+	void ComputeEMD(ArrayList<Integer> a, ArrayList<Integer> b, double unit, int resolution) {
+		// 1. exact,
+		
+		// 2. approximate, Table
+		
+	}
+	
+	void LowerBoundEMD() {
+		// compute the lower bound
+		
+		// Table 1.
+		
+	}
+	
+	void BuildIndex(indexNode root) {
+		// compute pivot and radius
+		
+		// 
+	}
+	
+	void TopKEMD() {
+		// 1. linear scanning, compute the lower bound first, then the exact, or approximate
+		
+		// 2. use index to prune, 
+	}
+	
 	public static HashMap<Integer, ArrayList<Integer>> storeZcurveFile(double minx, double miny, double range, 
 			int dimension, int resolution, String zcodeFile, int limit, Map<Integer, String> DatasetMapping) throws FileNotFoundException, IOException {
 		HashMap<Integer, ArrayList<Integer>> zcodeMap = new HashMap<Integer, ArrayList<Integer>>();// using the z-curve to store the encoding based on binary of x, y

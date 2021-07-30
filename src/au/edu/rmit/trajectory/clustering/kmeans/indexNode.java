@@ -19,7 +19,9 @@ public class indexNode {
 	protected double []sum;// the sum of all the points inside this node.
 	double[] bounds;//the lower bound distance to the non nearest neighbor;
 	private int totalCoveredPoints;
-	
+	double[][] matrixPivot;
+	double EMDRadius;
+ 	
 	//  used for pick-means
 	short assignedClusterID = 0;// it is set as 0 when not assigned, >0 is assigned in current iteration, <0 show the pervious assigned cluster
 	short newassign = 0; // used to store nearest
