@@ -1,2 +1,9 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
 dataset/beijing/*
 dataset/porto/*
+dataset/shapenet/*
