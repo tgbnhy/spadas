@@ -1,4 +1,4 @@
-# spadas
+# spade
 
 ## Compile
 
