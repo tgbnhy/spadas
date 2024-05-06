@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import au.edu.rmit.trajectory.clustering.kmeans.indexNode;
+import tree.trajectory.clustering.kmeans.indexNode;
 
 /*
  * Octree.java

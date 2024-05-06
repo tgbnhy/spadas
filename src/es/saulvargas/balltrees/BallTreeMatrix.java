@@ -21,16 +21,12 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import static java.lang.Math.max;
 import static java.lang.Math.sqrt;
 
-<<<<<<< HEAD
-import java.util.Arrays;
-=======
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 
-import au.edu.rmit.trajectory.clustering.kmeans.indexNode;
+import tree.trajectory.clustering.kmeans.indexNode;
 
 /**
  * Ball tree.
@@ -85,17 +81,14 @@ public class BallTreeMatrix extends BinaryTree {
         indexNode rootKmeans = new indexNode(dimension);
         setWeight(dimension, weightinput);
         int depth = 0;
-<<<<<<< HEAD
 //        split conditions to test the function of each condition
-//        if (rows.length > leafThreshold && depth < maxDepth) {
-//            createChildren(root, leafThreshold, depth + 1, maxDepth);
-//        }
-        if (rows.length > leafThreshold){
-=======
+//        还是得用深度来限制，不然内存爆了
         if (rows.length > leafThreshold && depth < maxDepth) {
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
             createChildren(root, leafThreshold, depth + 1, maxDepth);
         }
+//        if (rows.length > leafThreshold){
+//            createChildren(root, leafThreshold, depth + 1, maxDepth);
+//        }
         root.traverseConvert(rootKmeans, dimension);
         return rootKmeans;
     }
@@ -109,30 +102,22 @@ public class BallTreeMatrix extends BinaryTree {
 
         Ball leftChild = new Ball(leftRows.toIntArray(), parent.getItemMatrix());
         parent.setLeftChild(leftChild);
-<<<<<<< HEAD
 //        split conditions to test the function of each condition
-//        if (leftChild.getRows().length > leafThreshold && depth < maxDepth) {
-//            createChildren(leftChild, leafThreshold, depth + 1, maxDepth);
-//        }
-        if (leftChild.getRows().length > leafThreshold){
-=======
         if (leftChild.getRows().length > leafThreshold && depth < maxDepth) {
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
             createChildren(leftChild, leafThreshold, depth + 1, maxDepth);
         }
+//        if (leftChild.getRows().length > leafThreshold){
+//            createChildren(leftChild, leafThreshold, depth + 1, maxDepth);
+//        }
 
         Ball rightChild = new Ball(rightRows.toIntArray(), parent.getItemMatrix());
         parent.setRightChild(rightChild);
-<<<<<<< HEAD
-//        if (rightChild.getRows().length > leafThreshold) {
-//            createChildren(rightChild, leafThreshold, depth + 1, maxDepth);
-//        }
-        if (rightChild.getRows().length > leafThreshold){
-=======
-        if (rightChild.getRows().length > leafThreshold) {
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
+        if (rightChild.getRows().length > leafThreshold && depth < maxDepth) {
             createChildren(rightChild, leafThreshold, depth + 1, maxDepth);
         }
+//        if (rightChild.getRows().length > leafThreshold){
+//            createChildren(rightChild, leafThreshold, depth + 1, maxDepth);
+//        }
     }
 
     protected static void splitItems(int[] rows, double[][] itemMatrix, IntArrayList leftRows, IntArrayList rightRows) {
@@ -189,11 +174,8 @@ public class BallTreeMatrix extends BinaryTree {
             this.rows = rows;
             this.itemMatrix = itemMatrix;
             calculateCenter();
-<<<<<<< HEAD
 //            try new center method
 //            calculateCenterByMBR();
-=======
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
             calculateRadius();
         }
 
@@ -214,7 +196,6 @@ public class BallTreeMatrix extends BinaryTree {
 
         private void calculateCenter() {
             center = new double[itemMatrix[0].length];
-<<<<<<< HEAD
 //            double[][] temp = new double[rows.length][2];
             /*if(rows.length == 17) {
                 for (int i = 0; i < rows.length; i++) {
@@ -224,9 +205,6 @@ public class BallTreeMatrix extends BinaryTree {
                     temp[i] = itemMatrix[rows[i]];
                 }
             }*/
-=======
-
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
             for (int row : rows) {
                 for (int i = 0; i < center.length; i++) {
                     center[i] += itemMatrix[row][i];
@@ -237,7 +215,6 @@ public class BallTreeMatrix extends BinaryTree {
             }
         }
 
-<<<<<<< HEAD
 //        a new method to calculate pivot/center using mbr
         private void calculateCenterByMBR() {
             int dim = itemMatrix[0].length;
@@ -253,19 +230,13 @@ public class BallTreeMatrix extends BinaryTree {
             }
         }
 
-=======
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
         private void calculateRadius() {
             radius = Double.NEGATIVE_INFINITY;
 
             for (int row : rows) {
                 radius = max(radius, distance2(center, itemMatrix[row]));
             }
-<<<<<<< HEAD
 //            radius = sqrt(radius);
-=======
-            radius = sqrt(radius);
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
         }
 
         public double mip(double[] q) {
@@ -307,7 +278,6 @@ public class BallTreeMatrix extends BinaryTree {
     			Set<Integer> aIntegers = new HashSet<Integer>();
     			double []sumOfPoints = new double[dimension];
     			for(int id : rows) {
-<<<<<<< HEAD
 //    				aIntegers.add(id+1);// the pointid
                     aIntegers.add(id);
 //                    test
@@ -324,12 +294,6 @@ public class BallTreeMatrix extends BinaryTree {
                         }
                     }
                 }*/
-=======
-    				aIntegers.add(id+1);// the pointid
-    				for(int i=0; i<dimension; i++)
-    					sumOfPoints[i] += itemMatrix[id][i];
-    			}
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
     			rootKmeans.setSum(sumOfPoints);
     			rootKmeans.addPoint(aIntegers);		
     			rootKmeans.setTotalCoveredPoints(aIntegers.size());
@@ -361,11 +325,7 @@ public class BallTreeMatrix extends BinaryTree {
         	else
         		d += (x[i] - y[i]) * (x[i] - y[i])*weight[i]*weight[i];
         }
-<<<<<<< HEAD
         return sqrt(d);
-=======
-        return d;
->>>>>>> 76a8efdf061f79d681a7e8054c4dbe70dc82b9d3
     }
 
     public static double norm(double[] x) {

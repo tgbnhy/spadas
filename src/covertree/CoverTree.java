@@ -24,7 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import au.edu.rmit.trajectory.clustering.kmeans.indexNode;
+import tree.trajectory.clustering.kmeans.indexNode;
 
 public class CoverTree<E> {
 	

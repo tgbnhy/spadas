@@ -9,8 +9,5 @@
         <module name="torch-clus" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="torch-clus" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

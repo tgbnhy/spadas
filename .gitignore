@@ -9,3 +9,7 @@ bin
 dataset/beijing/*
 dataset/porto/*
 dataset/shapenet/*
+
+target/
+
+index/dss/index
