@@ -34,7 +34,7 @@ Citation
 
       title={A Unified Approach for Multi-Granularity Search over Spatial Datasets},
 
-      author={Wenzhe Yang and Sheng Wang and Shixun Huang and Yuyang Liao and Yuan Sun and Juliana Freire and Zhiyong Peng},
+      author={Wenzhe Yang and Sheng Wang and Shixun Huang and Hao Liu and Yuan Sun and Juliana Freire and Zhiyong Peng},
 
       year={2025},
 
